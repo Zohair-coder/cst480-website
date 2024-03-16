@@ -123,7 +123,7 @@ const config = {
               },
               {
                 label: 'Misc',
-                to: '/misc/ssh-passphrase',
+                to: '/misc/rest-apis',
               },
             ],
           },
