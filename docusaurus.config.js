@@ -73,6 +73,12 @@ const config = {
             position: 'left',
             label: 'Syllabus',
           },
+          {
+            type: 'docSidebar',
+            sidebarId: 'activitiesSidebar',
+            position: 'left',
+            label: 'Activities',
+          },
         ],
       },
       footer: {
@@ -85,6 +91,10 @@ const config = {
                 label: 'Syllabus',
                 to: '/',
               },
+              {
+                label: 'Activities',
+                to: '/activities',
+              },
             ],
           },
           {
@@ -93,6 +103,15 @@ const config = {
               {
                 label: 'nkl43@drexel.edu',
                 href: 'mailto:nkl43@drexel.edu',
+              },
+            ],
+          },
+          {
+            title: 'More',
+            items: [
+              {
+                label: 'Source Code',
+                href: 'https://github.com/Zohair-coder/cst480-website',
               },
             ],
           },
