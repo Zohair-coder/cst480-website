@@ -52,16 +52,157 @@ You’re not required to write automated tests of your front-end or add extensiv
 As before, your deliverables will be your git repo and a reflection posted on your personal site.
 
 ## Adding React to your project
-
 You should integrate React into your current project like we did for Activity 2b. Put your back-end code for Homework 1 into a folder called `back/`. In the folder that contains your `back/` folder, run the following command:
 
 ```bash
 npm create vite@latest front -- --template react-ts
 ```
 
-This will create a React Typescript project using Vite in a folder named `front/`.
+This will create a React Typescript project using Vite in a folder named `front/`. When finished, your directory structure should look like:
 
-...
+```
+.
+├── back
+│   ├── database.db
+│   ├── out
+│   │   └── ...
+│   ├── package-lock.json
+│   ├── package.json
+│   ├── setup.sql
+│   ├── src
+│   │   └── ... YOUR SERVER SOURCE CODE
+│   └── tsconfig.json
+└── front
+      ├── README.md
+      ├── dist
+      │   └── ...
+      ├── index.html
+      ├── package-lock.json
+      ├── package.json
+      ├── public
+      │   └── ...
+      ├── src
+      │   ├── ... YOUR CLIENT CODE GOES HERE
+      │   ├── main.tsx
+      │   └── vite-env.d.ts
+      ├── tsconfig.json
+      ├── tsconfig.node.json
+      └── vite.config.ts
+```
+
+> [See here](https://vitejs.dev/guide/) to learn more about Vite.
+
+To run your code, you’ll need one terminal running your back-end server and another terminal running `npm run dev` from your `front/` folder, which will run Vite’s dev server displaying your React code. The dev server has hot module reloading, so every change you make will be automatically reflected in your browser.
+
+I recommend moving your back-end routes behind some kind of `/api` route to keep them separate from your front-end pages (e.g. `POST /api/authors` instead of `POST /authors`), if you haven’t already. You can then add the following to your `vite.config.ts` file:
+
+```javascript
+export default defineConfig({
+  // ...
+  server: {
+    proxy: {
+      "/api": "http://localhost:3000", // this should match the URL your server is running on
+    },
+  },
+});
+```
+
+This will ensure that your front-end requests to routes like `/api/books` get proxied to your back-end. This is necessary because Vite will run a development server to preview your React files on a different port, so without this, you’d need to type the full URL before every request (e.g. `fetch("http://localhost:3000/api/books")` vs `fetch("/api/books")).
+
+## Structuring your UI
+I should see some kind of React page when I visit the `/` route. Besides that, it’s up to you to figure out how to structure your UI. You may want to look at how other sites lay out forms, tables, and search inputs, e.g. [Goodreads](https://www.goodreads.com/).
+
+You don’t need to focus on writing a lot of CSS for the individual components, but they should be laid out on the page sensibly (e.g. all input fields shouldn’t be crammed together on the same line with uneven spacing), and it should be obvious what each component does (e.g. all input fields should have an associated label).
+
+Similarly, your UI should be discoverable, meaning that I shouldn’t have to read a README to know how to navigate your site. If your front-end has multiple pages, the home page should link to them — I shouldn’t need to type routes into the URL bar directly.
+
+Consider how to handle errors, especially around form submission. Ideally, your error messages would be as specific as possible (e.g. “‘name’ must be at minimum length 1” versus “Invalid ‘name’”) to make it clear to the user what went wrong.
+
+## Typescript
+Your front-end code should be written in Typescript. You should avoid `any` types where reasonable. Most popular front-end packages come with types that you can import. Additionally, you should consider how to use types effectively when querying your API back-end.
+
+## Tips on using ESLint
+Hooks can be challenging to use correctly, particularly with the [rules of hooks](https://react.dev/warnings/invalid-hook-call-warning). Vite automatically installs ESLint, a JS linter, and assorted ESLint rules that check to make sure your code follows the rules of hooks. To enable linting when Vite runs your code, install `vite-plugin-eslint`
+
+```bash
+npm i -D vite-plugin-eslint
+```
+
+and then add `eslint()` to the plugins array in `vite.config.ts`:
+
+```javascript
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import eslint from "vite-plugin-eslint"; // ADDED THIS
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react(), eslint()], //ADDED eslint() TO ARRAY HERE
+  server: {
+    proxy: {
+      "/api": "http://localhost:3000",
+    },
+  },
+});
+```
+
+By default, Vite won’t run ESLint when you first run `npm run dev` because it can be a little slow; it’ll only print ESLint errors when you execute code that has the linting error. You can change this by passing a config option to the `eslint` function, like so: `plugins: [react(), eslint({ lintOnStart: true })]`. Enabling this will cause `npm run dev` to fail when first run if your code contains any linting errors. If you successfully run `npm run dev` and then introduce a linting error, it won’t quit the dev server — as soon as you fix the error, Vite will reload the server and refresh the page as usual.
+
+> You can see a full list of configuration options for the Vite ESLint plugin [here](https://www.npmjs.com/package/vite-plugin-eslint).
+
+ESLint rules tend to be pretty strict and Vite won’t run your code if it has any linting errors. To disable certain ESLint rules, you can add exceptions to the `rules` object in the `.eslintrc.cjs` file that Vite creates automatically. For example, I added these rules to my `.eslintrc.cjs`:
+
+```javascript
+module.exports = {
+  // ...
+  rules: {
+    // ...
+    "prefer-const": "off", // let is fine who cares
+    // note that you can also avoid getting warned for unused variables
+    // when destructuring arrays by just using commas in cases like this:
+    // e.g. let [, x] = [1, 2, 3]; console.log(x);
+    "@typescript-eslint/no-unused-vars": "off", // annoying when developing
+    "@typescript-eslint/no-explicit-any": "off", // sometimes it really can be anything, dude
+  },
+};
+```
+
+You can tell what the name of a rule is because ESLint will print it when it prints the linting error, e.g. to disable this error message:
+
+```
+31:45  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+```
+
+you’d add `"@typescript-eslint/no-explicit-any": "off"` to `.eslintrc.cjs`. If you change the `.eslintrc.cjs`, you might have to rerun `npm run dev` to see the changes.
+
+You can check that ESLint is working by intentionally adding broken code. For example, if you add this to any of your React components
+
+```javascript
+let foo = 3;
+if (foo === 3) {
+  let [bar, _] = useState(0);
+  console.log(bar);
+}
+```
+
+this will violate the rules of hooks, which require that hooks must only be called at the top level of a component, so you’d see this ESLint error when you run the component you put this error in:
+
+```
+38:20  error  React Hook "useState" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+```
+
+## Tips on using React
+You’ll need to send HTTP requests to get/send data for your books table/forms; you can use whatever browser API or package you like for this. I like [Axios](https://axios-http.com/docs/intro).
+
+If you use the response from an HTTP request to update a component’s state (e.g. when you fetch data for your books table), you’ll need to use the useEffect hook to make the request. useEffect is one of the trickiest hooks to use correctly; see [here](https://react.dev/learn/synchronizing-with-effects) and [here](https://www.robinwieruch.de/react-hooks-fetch-data/) for guides.
+
+Using forms in React requires a little extra work because forms have their own internal state that React can’t control. You can control each [input](https://react.dev/reference/react-dom/components/input#controlling-an-input-with-a-state-variable), [select](https://react.dev/reference/react-dom/components/select#controlling-a-select-box-with-a-state-variable), and [textarea](https://react.dev/reference/react-dom/components/textarea#controlling-a-text-area-with-a-state-variable) element, and define a button that sends a POST request when clicked. Or you can use the [react-hook-form package](https://react-hook-form.com/), which provides a hooks-based API for form submission/validation for you.
+
+If you add console logs to your components, you’ll see that your components are getting rendered twice. This is because the Vite starter code uses React’s strictMode, which renders all components twice to surface bugs; [see here](https://react.dev/reference/react/StrictMode#fixing-bugs-found-by-double-rendering-in-development) for details. strictMode only runs your components twice in development, not production, so don’t worry about it.
+
+If your UI has multiple “pages”, you should use [React Router](https://reactrouter.com/en/main/start/tutorial) to ensure the URL gets updated and the back button works when “links” are clicked.
+
+When writing front-end code that calls your back-end endpoints, you might find yourself wanting to reuse the types from your back-end so you can type the responses. Unfortunately, this is quite hard to achieve without restructuring your entire project because your front and back-end projects are two separate projects with two separate compilation configurations. If you want to try doing this anyway, you may find packages like [tRPC](https://trpc.io/) and/or features like [npm workspaces](https://earthly.dev/blog/npm-workspaces-monorepo/) helpful.
 
 ### Git repo
 
