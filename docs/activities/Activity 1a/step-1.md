@@ -60,7 +60,7 @@ Click “Create and Buy Now”. In a few minutes, you should receive an email wi
 You can log into your server via ssh with the following command, replacing *IP* with the IPv4 address that was emailed to you:
 
 ```bash
-ssh root@IP
+ssh root@_IP_
 ```
 
 When you do this, you’ll be prompted to change your password from the default password. Enter the root password you were emailed, then pick a new password. **Remember your new root password, as if you lose it, you’ll permanently lose access to this machine and you’ll have to delete it and reprovision a new one.**

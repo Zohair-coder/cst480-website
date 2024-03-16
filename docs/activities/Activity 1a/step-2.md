@@ -60,7 +60,7 @@ sudo apt install vim
 sudo vim /etc/ssh/sshd_config
 ```
 
-This is the configuration file for the ssh service. System services are also known as daemons, hence why it’s called sshd_config. Daemons are programs that run constantly in the background. This file is only writable by root, which is why we need sudo. You’ll be prompted for your password the first time you use sudo in a session — you’ll use the same password for sudo that you do for logging in (again, not the root password).
+This is the configuration file for the ssh service. System services are also known as daemons, hence why it’s called ssh*d*_config. Daemons are programs that run constantly in the background. This file is only writable by root, which is why we need sudo. You’ll be prompted for your password the first time you use sudo in a session — you’ll use the same password for sudo that you do for logging in (again, not the root password).
 
 Find the line PermitRootLogin and change the yes to a no. Save and quit (enter command mode with ESC, then type `:wq`), then run
 
@@ -93,7 +93,7 @@ ssh-keygen -t ed25519
 - The -t flag says to use EdDSA encryption algorithm instead of default RSA algorithm, which is currently out of favor in the security community. EdDSA seems in favor right now.
 - When prompted for filename, pick a name. I chose `HOSTNAME_hetzner`, using the name I gave the server when I created it through the Hetzner interface.
   - You can leave the filename blank, and then ssh-keygen will name it after the encryption algorithm you’re using. Using the default filename makes ssh easier to configure, but if you ever want to add more ssh keys later (e.g. to clone a Github repo), you’ll need to choose a filename because your new key will overwrite your old one if you generate a new key using the same algorithm.
-- Only use a passphrase if you’re okay with typing that in every time you ssh into your Linode server. A passphrase will encrypt the ssh key on your system, meaning that if someone steals your laptop, they won’t be able to decrypt your key without the password. You can press enter without typing to use an empty passphrase. If you want to use a passphrase, see [here](/misc/ssh-passphrase) for more information.
+- Only use a passphrase if you’re okay with typing that in every time you ssh into your Linode server. A passphrase will encrypt the ssh key on your system, meaning that if someone steals your laptop, they won’t be able to decrypt your key without the password ([source](https://security.stackexchange.com/a/58468)). You can press enter without typing to use an empty passphrase. If you want to use a passphrase, [see here](/misc/ssh-passphrase) for more information.
   - I personally don’t use one because I find it annoying to type it over and over again. But that’s just me.
 
 ssh-keygen will generate two files — one named `KEYFILENAME`, the other named `KEYFILENAME.pub`. The first file is your private key — never, ever share this, as it’s effectively your password. The second file is your public key, which can be shared.
@@ -122,24 +122,24 @@ authorized_keys is a file that will store all public keys that match private key
 
 > If you don’t have a program called `ssh-copy-id` on your local computer, you can follow these steps instead. Run this command locally (replacing KEYFILENAME, USERNAME, AND IP):
 
-```bash
-scp ~/.ssh/KEYFILENAME.pub USERNAME@IP:/home/USERNAME
-```
+>```bash
+>scp ~/.ssh/KEYFILENAME.pub USERNAME@IP:/home/USERNAME
+>```
 
-This will copy your public key to your server and put it in your home directory.
+>This will copy your public key to your server and put it in your home directory.
 
-Now, ssh into your server (you’ll still need to type your password), then run the following commands (replacing KEYFILENAME):
+>Now, ssh into your server (you’ll still need to type your password), then run the following commands (replacing KEYFILENAME):
 
-```bash
-if [[ ! -d ~/.ssh ]]; then
-  mkdir ~/.ssh
-fi
-chmod 744 ~/.ssh
-mv ~/KEYFILENAME.pub ~/.ssh/authorized_keys
-chmod 644 ~/.ssh/authorized_keys
-```
+>```bash
+>if [[ ! -d ~/.ssh ]]; then
+>  mkdir ~/.ssh
+>fi
+>chmod 744 ~/.ssh
+>mv ~/KEYFILENAME.pub ~/.ssh/authorized_keys
+>chmod 644 ~/.ssh/authorized_keys
+>```
 
-This will append your public key file to the `~/.ssh/authorized_keys` file so ssh can find it. You can test that the permissions were set correctly by running `ls -alR ~`.
+>This will append your public key file to the `~/.ssh/authorized_keys` file so ssh can find it. You can test that the permissions were set correctly by running `ls -alR ~`.
 
 Now log out and try sshing back in. You should immediately log in and not be prompted for a password, unless you chose a passphrase when creating your ssh key, in which case you’ll need to enter it. If this doesn’t work, try looking around [this page](https://unix.stackexchange.com/questions/36540/why-am-i-still-getting-a-password-prompt-with-ssh-with-public-key-authentication/55481) to figure out why. Usually it’s an issue with permissions.
 
@@ -205,7 +205,7 @@ For example, if your hostname was `myserver`, your domain name was `mydomain.com
 
 Even though we’ve set up ssh keys, our server isn’t really secure. Every port is open to the internet, ready to accept any traffic. Attackers can send packets to any port as much as they want, and if they find a port that has a vulnerable program listening, they can get access to our server.
 
-While you haven’t posted your IP address online, attackers can send requests to all possible IPv4 addresses (there are only 2^32 = ~4.3 million of them, and with programs like [MASSCAN](https://github.com/robertdavidgraham/masscan), they can all be tried in a matter of minutes) to discover which ones have listening servers behind them. If you leave your server open, even for just a day, you’ll begin to see failed authentication attempts in your ssh logs, which are stored in /var/log/auth.log. These aren’t targeted attacks — rather, attackers have fleets of servers that run automated scripts searching for easy vulnerabilities.
+While you haven’t posted your IP address online, attackers can send requests to all possible IPv4 addresses (there are only 2<sup>32</sup> = ~4.3 million of them, and with programs like [MASSCAN](https://github.com/robertdavidgraham/masscan), they can all be tried in a matter of minutes) to discover which ones have listening servers behind them. If you leave your server open, even for just a day, you’ll begin to see failed authentication attempts in your ssh logs, which are stored in /var/log/auth.log. These aren’t targeted attacks — rather, attackers have fleets of servers that run automated scripts searching for easy vulnerabilities.
 
 Since you intend to use this server to host a website, you’ll need to leave ports 80 (for HTTP) and 443 (HTTPS) open to the public, but there’s no reason to leave port 22 (for ssh) open, as you’re the only one sshing into the server. Ideally, you’d configure a firewall that would block all traffic that wasn’t from your IP address, but your IP address changes whenever you change WiFi networks. Even if you only logged into your server from your home internet, your ISP (Internet Service Provider, e.g. Verizon or Comcast) has probably assigned you a dynamic IP address that can change whenever they want.
 
@@ -213,9 +213,9 @@ Since you intend to use this server to host a website, you’ll need to leave po
 
 Instead, we can use a VPN (Virtual Private Network) to create a secure tunnel from your local computer to your server and configure your server’s firewall to block any non-web traffic that comes from outside of the VPN tunnel. We’ll use [Tailscale](https://tailscale.com/), which is an VPN built on top of the open source WireGuard VPN. Tailscale has a free plan we can use.
 
-> Some VPNs are used to keep your internet traffic private or circumvent country blocks. They work by rerouting all of your internet traffic to their VPN server, so requests you make to other sites appear to be coming from their servers. Tailscale doesn’t do this by default (you can make it do this by setting up an exit node) — it only reroutes requests made to certain Tailscale IP addresses. Its intended purpose is to create secure peer-to-peer tunnels, which is how we’re using it. You can learn more about how it works [here](https://tailscale.com/blog/how-tailscale-works/).
+Some VPNs are used to keep your internet traffic private or circumvent country blocks. They work by rerouting all of your internet traffic to their VPN server, so requests you make to other sites appear to be coming from their servers. Tailscale doesn’t do this by default (you can make it do this by setting up an exit node) — it only reroutes requests made to certain Tailscale IP addresses. Its intended purpose is to create secure peer-to-peer tunnels, which is how we’re using it. You can learn more about how it works [here](https://tailscale.com/blog/how-tailscale-works/).
 
-As an alternative to using a VPN, you could install a program like fail2ban or sshguard, which automatically monitors your ssh logs and adds firewall rules to block users who fail login attempts after a certain number of times. But these programs can be difficult to configure and may require some babysitting to keep running.
+> As an alternative to using a VPN, you could install a program like fail2ban or sshguard, which automatically monitors your ssh logs and adds firewall rules to block users who fail login attempts after a certain number of times. But these programs can be difficult to configure and may require some babysitting to keep running.
 
 Create a Tailscale account. You’ll need to pick an identity provider and you’ll use that account to log into your Tailscale account. Follow their instructions to install Tailscale on your local laptop. You may want to set your preferences to start Tailscale automatically on startup. If you already have a VPN installed, you may have to disable it when using Tailscale; VPNs generally don’t play nicely with each other.
 
@@ -282,7 +282,7 @@ Anywhere (v6) on tailscale0 ALLOW IN    Anywhere (v6)
 
 This means that incoming packets are dropped by default unless they’re from the tailscale0 device.
 
-> This style of firewall is called whitelisting. With blacklisting, all connections are allowed by default unless you’re on the blacklist. With whitelisting, all connections are denied by default unless you’re on the whitelist. Since attackers procure new IP addresses to hack servers all the time, a blacklist would need constant updating, so a whitelist is more secure and easier to maintain.
+This style of firewall is called whitelisting. With blacklisting, all connections are allowed by default unless you’re on the blacklist. With whitelisting, all connections are denied by default unless you’re on the whitelist. Since attackers procure new IP addresses to hack servers all the time, a blacklist would need constant updating, so a whitelist is more secure and easier to maintain.
 
 > The deny policy will tell the iptables underlying firewall to DROP packets instead of REJECTing them. A rejected packet is discarded and a rejection message is sent to the sender. A dropped packet is discarded, but no rejection message is sent. Dropping can slightly slow down attackers — they’ll have to wait for ssh to timeout before they know their packet wasn’t received, which will slow down brute force attacks. It will also help to hide your server from detection, as if no acknowledgment is sent, it could mean either that the packet was discarded or that no service is listening on that port at all ([source](https://stackoverflow.com/questions/4907173/ufw-linux-firewall-difference-between-reject-and-deny)).
 
