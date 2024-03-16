@@ -7,7 +7,7 @@ sidebar_position: 1
 
 Go through the following steps to set up your static website:
 
-1. Buy a domain, rent a server
-2. Set up your Linux server
-3. Configure your DNS records
-4. Set up your web server
+1. [Buy a domain, rent a server](step-1.md)
+2. [Set up your Linux server](step-2.md)
+3. [Configure your DNS records](step-3.md)
+4. [Set up your web server](step-4.md)
