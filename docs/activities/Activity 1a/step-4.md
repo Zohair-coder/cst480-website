@@ -1,5 +1,5 @@
 ---
-title: Step 5. Set up your web server
+title: Step 4. Set up your web server
 sidebar_position: 5
 ---
 
