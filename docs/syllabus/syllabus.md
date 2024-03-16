@@ -7,7 +7,9 @@ slug: /
 # Syllabus
 
 Winter 2023-24
+
 3 Credits
+
 Prerequisites: None (unofficially, CS375)
 
 | Section 001 | Prof. Long | M/W, 1:30 - 2:50 PM | Room 1053 |
@@ -19,9 +21,13 @@ Professor Galen Long
 galen.long@drexel.edu
 
 Office hours:
+
 In-person, 3675 Market Street Room 1153
+
 Tuesdays, 11 AM - 12 PM
+
 Thursdays, 11 AM - 12 PM
+
 Or by appointment
 
 ## Teaching assistants
@@ -101,7 +107,7 @@ The only extra credit opportunities usually offered are for completing your end-
 ## Discord etiquette
 
 - If you have a general question about assignment requirements or how to approach a problem, we encourage you to post in the public #questions channel so everyone can read our answers. If you have a more specific question or feel shy, you can message a TA/instructor directly. Never post solutions in a public channel.
-- Be professional, respectful, and polite to your fellow students and TAs/instructors. We like to have fun, but remember that our Discord server is a classroom environment. Help us create a welcoming environment by avoiding inapproprate jokes, swearing, or rudeness. - If you violate the Student Code of Conduct, your behavior will be reported to the Office of Student Conduct.
+- Be professional, respectful, and polite to your fellow students and TAs/instructors. We like to have fun, but remember that our Discord server is a classroom environment. Help us create a welcoming environment by avoiding inapproprate jokes, swearing, or rudeness. If you violate the Student Code of Conduct, your behavior will be reported to the Office of Student Conduct.
 - Feel free to send messages at any time, but allow us 48 business hours to respond (though we'll usually respond sooner than that). We'll try to get to your message as soon as possible, but don't expect us to check Discord on weekends, early mornings, or late at night. If you want guaranteed immediate responses, come to class or office hours. If you wait until just before a deadline to ask for help, you probably won't get help in time. That's on you. Plan ahead.
 - Your TAs are human beings and students like you. Please treat them with respect. Please also respect your professors' time. We care deeply about your education, but we have to balance your needs with our needs and the needs of all of our students.
 
@@ -109,7 +115,7 @@ The only extra credit opportunities usually offered are for completing your end-
 
 This course follows both the [CCI Conduct Policy](https://drexel.edu/cci/current-students/policies/) and the [Drexel University Academic Integrity Policy](https://drexel.edu/studentlife/community_standards/code-of-conduct/academic-integrity-policy/).
 
-In short, your work must be your own. Unless explicitly allowed, sharing solutions with anyone who is not an instructor or TA, borrowing significant ideas or code from any resource not given in class, or using AI tools to generate code is prohibited. See the attached PDF for more details. If you're unsure whether some behavior may violate the Academic Integrity Policy, you are always welcome to ask in advance. You will never be punished for asking.
+In short, your work must be your own. Unless explicitly allowed, sharing solutions with anyone who is not an instructor or TA, borrowing significant ideas or code from any resource not given in class, or using AI tools to generate code is prohibited. See the attached PDF for more details. If you're unsure whether some behavior may violate the Academic Integrity Policy, you are always welcome to ask in *advance*. You will never be punished for asking.
 
 All academic integrity violations will be reported to the university:
 - The first time you violate the Academic Integrity Policy in this course this term, you will receive either a zero on the assignment or exam the violation took place on, or a deduction of one whole letter grade from your course final grade (e.g. an A- becomes a B-), depending on the severity of the violation.
@@ -119,11 +125,11 @@ All academic integrity violations will be reported to the university:
 ## University policies
 
 In addition to the policies listed on this syllabus, course assignments, or the course website, the following university policies are in effect:
-- [Academic Integrity Policy](https://drexel.edu/provost/policies/academic-integrity/)
-- [Disability Resources](https://drexel.edu/oed/disabilityResources/students/)
-- [Course Add/Drop Policy](https://drexel.edu/provost/policies/course-add-drop/)
-- [Course Withdrawal Policy](https://drexel.edu/provost/policies/course-withdrawal/)
-- [Exam Policy](https://drexel.edu/registrar/scheduling/exams/exam-policy/)
+- [Academic Integrity Policy](https://drexel.edu/studentlife/community-standards/code-of-conduct/academic-integrity-policy)
+- [Disability Resources](https://drexel.edu/disability-resources)
+- [Course Add/Drop Policy](https://drexel.edu/provost/policies-calendars/policies/course-add-drop/)
+- [Course Withdrawal Policy](https://drexel.edu/provost/policies-calendars/policies/course-coop-withdrawal/)
+- [Exam Policy](https://drexel.edu/provost/policies-calendars/policies/final-examinations/)
 - Course Change Policy: The instructor may, at their discretion, change any part of the course during the term, including assignments, grade breakdowns, due dates, and the schedule. Such changes will be communicated to students via the course website Announcements page or our Discord channels. These channels should be checked regularly and frequently for changes. Other announcements, although rare, may include class cancellations and other urgent communications.
 - Initial Course Participation (ICP): Class attendance is critical to your success as a student. Missing class may impact your class success and your federal financial aid.
 
