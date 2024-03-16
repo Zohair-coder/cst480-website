@@ -5,38 +5,38 @@ sidebar_position: 2
 
 For this assignment, you’ll add a React front-end to your back-end from Homework 1. Your React code should be written in Typescript and use [hooks](https://react.dev/reference/react/hooks) instead of class-based components.
 
-Before React v16.8, components used to be written with classes, e.g.:
+> Before React v16.8, components used to be written with classes, e.g.:
 
-```jsx
-class Timer extends React.Component {
-     constructor(props) {
-      super(props);
-      this.state = { count: 0 };
-     }
-     render() {
-      return (
-          <button onClick={() => this.setState(state => ({count: state.count + 1}))}>
-                I've been clicked {count} times
-          </button>
-      );
-     }
-}
-```
+> ```jsx
+> class Timer extends React.Component {
+>      constructor(props) {
+>       super(props);
+>       this.state = { count: 0 };
+>      }
+>      render() {
+>       return (
+>           <button onClick={() => this.setState(state => ({count: state.count + 1}))}>
+>                 I've been clicked {count} times
+>           </button>
+>       );
+>      }
+> }
+> ```
 
-Now all React components are written as functions that call hooks like `useState`, example [from here](https://legacy.reactjs.org/docs/hooks-intro.html):
+> Now all React components are written as functions that call hooks like `useState`, example [from here](https://legacy.reactjs.org/docs/hooks-intro.html):
 
-```jsx
-function Example() {
-  const [count, setCount] = useState(0);
-  return (
-    <button onClick={() => setCount(count + 1)}>
-      I've been clicked {count} times
-    </button>
-  );
-}
-```
+> ```jsx
+> function Example() {
+>   const [count, setCount] = useState(0);
+>   return (
+>     <button onClick={() => setCount(count + 1)}>
+>       I've been clicked {count} times
+>     </button>
+>   );
+> }
+> ```
 
-If you see React code written using classes, that means it’s old. Your code should be written with hooks.
+> If you see React code written using classes, that means it’s old. Your code should be written with hooks.
 
 Your front-end should have:
 
@@ -45,7 +45,7 @@ Your front-end should have:
 2. A table that displays all books in the database, sorted alphabetically, constructed from a GET request to your API.
 3. A search input that allows you to search for all books that meet some criteria (e.g. display all books published after some year).
 
-You can refactor your back-end as needed to work better with your front-end, though you’ll want to keep track of the changes you made for your reflection.
+You can refactor your back-end as needed to work better with your front-end, though you’ll want to keep track of the changes you made for your reflection (see below).
 
 You’re not required to write automated tests of your front-end or add extensive CSS styling for this assignment. We’ll add styling in a later assignment, so don’t bother styling it significantly now.
 
@@ -107,7 +107,7 @@ export default defineConfig({
 });
 ```
 
-This will ensure that your front-end requests to routes like `/api/books` get proxied to your back-end. This is necessary because Vite will run a development server to preview your React files on a different port, so without this, you’d need to type the full URL before every request (e.g. `fetch("http://localhost:3000/api/books")` vs `fetch("/api/books")).
+This will ensure that your front-end requests to routes like `/api/books` get proxied to your back-end. This is necessary because Vite will run a development server to preview your React files on a different port, so without this, you’d need to type the full URL before every request (e.g. `fetch("http://localhost:3000/api/books")` vs `fetch("/api/books")`).
 
 ## Structuring your UI
 I should see some kind of React page when I visit the `/` route. Besides that, it’s up to you to figure out how to structure your UI. You may want to look at how other sites lay out forms, tables, and search inputs, e.g. [Goodreads](https://www.goodreads.com/).
@@ -207,6 +207,8 @@ When writing front-end code that calls your back-end endpoints, you might find y
 ### Git repo
 
 Your first deliverable for this assignment is your code. **Use the same repo that you used for your previous assignment**.
+
+> When grading prior assignments, I’ll clone your repo and then hard reset it so I only see commits as of the timestamp of your Blackboard submit time for that assignment. This means that committing to the same repo for future assignments won’t disrupt the grading of prior assignments. This also means that if you update your code after you submit on Blackboard, you should resubmit on Blackboard so I see your changes.
 
 I will expect to be able to compile and run your code with the following commands:
 
