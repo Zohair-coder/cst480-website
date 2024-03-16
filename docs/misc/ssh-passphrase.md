@@ -3,8 +3,6 @@ title: Using an ssh passphrase
 sidebar_position: 1
 ---
 
-## Using an ssh passphrase
-
 If you use a passphrase when generating your ssh key, you’ll have to type it every time you ssh. Manually, you can run
 
 ```bash
