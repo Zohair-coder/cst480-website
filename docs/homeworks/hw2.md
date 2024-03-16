@@ -1,5 +1,5 @@
 ---
-title: Homework 2
+title: Homework 2 - Adding a React front-end
 sidebar_position: 2
 ---
 

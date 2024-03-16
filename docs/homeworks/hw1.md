@@ -1,5 +1,5 @@
 ---
-title: Homework 1
+title: Homework 1 - Building a basic REST API in Typescript
 sidebar_position: 1
 ---
 

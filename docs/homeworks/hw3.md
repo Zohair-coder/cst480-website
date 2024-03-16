@@ -1,5 +1,5 @@
 ---
-title: Homework 3
+title: Homework 3 - Adding an edit/delete interface
 sidebar_position: 3
 ---
 

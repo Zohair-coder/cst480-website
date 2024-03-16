@@ -1,5 +1,5 @@
 ---
-title: Homework 4
+title: Homework 4 - Adding authentication, deploying, and securing your app
 sidebar_position: 4
 ---
 
