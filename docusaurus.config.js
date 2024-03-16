@@ -79,6 +79,18 @@ const config = {
             position: 'left',
             label: 'Activities',
           },
+          {
+            type: 'docSidebar',
+            sidebarId: 'homeworksSidebar',
+            position: 'left',
+            label: 'Homeworks',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'projectSidebar',
+            position: 'left',
+            label: 'Project',
+          },
         ],
       },
       footer: {
@@ -94,6 +106,14 @@ const config = {
               {
                 label: 'Activities',
                 to: '/activities',
+              },
+              {
+                label: 'Homeworks',
+                to: '/homeworks',
+              },
+              {
+                label: 'Project',
+                to: '/project',
               },
             ],
           },
