@@ -1,4 +1,6 @@
-# Website
+# CS T480 Course Website
+
+Live at: [https://cst480.zohair.dev/](https://cst480.zohair.dev/)
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
