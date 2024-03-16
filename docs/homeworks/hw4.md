@@ -83,7 +83,6 @@ cd back/
 npm i
 npm run setup
 npm run test-data # new
-
 npm run start
 
 # in another terminal...
@@ -121,4 +120,6 @@ Submit a text file exactly named `<drexel-username>.txt` (e.g. `abc123.txt`) in 
 <link to your deployed site>
 ```
 
-Don’t zip it. Just submit the plain .txt file. **Your text file should not include any additional text besides the links.** It should not say something like `Repo: <link>` — just `<link>`. Your submission will be graded based on the quality of your reflection, code, and UI design.
+Don’t zip it. Just submit the plain .txt file. **Your text file should not include any additional text besides the links.** It should not say something like `Repo: <link>` — just `<link>`.
+
+Your submission will be graded based on the quality of your reflection, code, and UI design.

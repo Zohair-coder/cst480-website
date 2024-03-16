@@ -113,17 +113,17 @@ addresses all of the above questions, it’s sufficient. Your reflection
 will be more useful for your learning if it’s honest.
 
 ## Grading
-Submit a text file exactly named `&lt;drexel-username&gt;.txt` (e.g. `abc123.txt`)
+Submit a text file exactly named `<drexel-username.txt>` (e.g. `abc123.txt`)
 in the exact following format to Blackboard:
 ```
-&lt;link to your git repository&gt;
-&lt;link to your reflection post&gt;
+<link to your git repository>
+<link to your reflection post>
 ```
 
 Don’t zip it. Just submit the plain .txt file. **Your text file
 should not include any additional text besides the links.** It
-should not say something like `Repo: &lt;link&gt;` — just
-`&lt;link&gt;`.
+should not say something like `Repo: <link>` — just
+`<link>`.
 
 Your submission will be graded based on the quality of your
 reflection, code, and UI design.
