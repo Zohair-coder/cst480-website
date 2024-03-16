@@ -23,7 +23,7 @@ As before, your deliverables will be your git repo and a reflection
 posted on your personal site.
 
 ## Editing endpoint
-Your editing endpoint should be REST-y. See the [REST resources page](../../rest/) for tips on how to structure
+Your editing endpoint should be REST-y. See the [REST resources page](/misc/rest-apis) for tips on how to structure
 your API.
 
 The endpoint will be probably be similar to the POST endpoint, but

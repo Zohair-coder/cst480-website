@@ -91,6 +91,12 @@ const config = {
             position: 'left',
             label: 'Project',
           },
+          {
+            type: 'docSidebar',
+            sidebarId: 'miscSidebar',
+            position: 'left',
+            label: 'Misc',
+          },
         ],
       },
       footer: {
@@ -105,15 +111,19 @@ const config = {
               },
               {
                 label: 'Activities',
-                to: '/activities',
+                to: '/activities/Activity 1a/Overview',
               },
               {
                 label: 'Homeworks',
-                to: '/homeworks',
+                to: '/homeworks/hw1',
               },
               {
                 label: 'Project',
-                to: '/project',
+                to: '/project/overview',
+              },
+              {
+                label: 'Misc',
+                to: '/misc/ssh-passphrase',
               },
             ],
           },

@@ -31,7 +31,7 @@ Your API should follow REST API best practices and support POST, GET, and DELETE
 
 ### REST API
 
-Your API should send and receive JSON, and follow the basic REST API best practices as described [here](../../rest). Additionally, it should support:
+Your API should send and receive JSON, and follow the basic REST API best practices as described [here](/misc/rest-apis). Additionally, it should support:
 
 - POST, GET, and DELETE requests to create, fetch, and delete resources (respectively).
 - GET requests to fetch a single book/author by ID and all books/authors.
@@ -87,7 +87,7 @@ Your second deliverable for this assignment is a reflection, which should be pos
 
 ### Starter code
 
-Starter code is provided [here](starter.zip). cd into the starter code folder and run `npm i` to install dependencies.
+Starter code is provided [here](//starter.zip). cd into the starter code folder and run `npm i` to install dependencies.
 
 **Tips:**
 - If you’re truly not able to figure out how to type something, give it type `any` and move on.
