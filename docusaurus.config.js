@@ -10,7 +10,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'CS T480 - Advanced Web Development',
   tagline: 'Advanced Web Development - Drexel University',
-  favicon: 'img/logo.png',
+  favicon: 'img/blue-logo.png',
 
   // Set the production url of your site here
   url: 'https://cst480.zohair.dev/',
@@ -59,12 +59,12 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/logo.png',
+      image: 'img/blue-logo.png',
       navbar: {
         title: 'CS T480 - Advanced Web Development',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo.png',
+          src: 'img/blue-logo.png',
         },
         items: [
           {
