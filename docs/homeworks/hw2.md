@@ -204,7 +204,7 @@ If your UI has multiple “pages”, you should use [React Router](https://react
 
 When writing front-end code that calls your back-end endpoints, you might find yourself wanting to reuse the types from your back-end so you can type the responses. Unfortunately, this is quite hard to achieve without restructuring your entire project because your front and back-end projects are two separate projects with two separate compilation configurations. If you want to try doing this anyway, you may find packages like [tRPC](https://trpc.io/) and/or features like [npm workspaces](https://earthly.dev/blog/npm-workspaces-monorepo/) helpful.
 
-### Git repo
+## Git repo
 
 Your first deliverable for this assignment is your code. **Use the same repo that you used for your previous assignment**.
 
