@@ -103,36 +103,3 @@ Final grades may be curved but are generally computed via the formula below:
 | [60-0]     | F     |
 
 The only extra credit opportunities usually offered are for completing your end-of-term course evaluations and any course feedback surveys sent out by your instructor.
-
-## Discord etiquette
-
-- If you have a general question about assignment requirements or how to approach a problem, we encourage you to post in the public #questions channel so everyone can read our answers. If you have a more specific question or feel shy, you can message a TA/instructor directly. Never post solutions in a public channel.
-- Be professional, respectful, and polite to your fellow students and TAs/instructors. We like to have fun, but remember that our Discord server is a classroom environment. Help us create a welcoming environment by avoiding inapproprate jokes, swearing, or rudeness. If you violate the Student Code of Conduct, your behavior will be reported to the Office of Student Conduct.
-- Feel free to send messages at any time, but allow us 48 business hours to respond (though we'll usually respond sooner than that). We'll try to get to your message as soon as possible, but don't expect us to check Discord on weekends, early mornings, or late at night. If you want guaranteed immediate responses, come to class or office hours. If you wait until just before a deadline to ask for help, you probably won't get help in time. That's on you. Plan ahead.
-- Your TAs are human beings and students like you. Please treat them with respect. Please also respect your professors' time. We care deeply about your education, but we have to balance your needs with our needs and the needs of all of our students.
-
-## Academic Integrity Policies
-
-This course follows both the [CCI Conduct Policy](https://drexel.edu/cci/current-students/policies/) and the [Drexel University Academic Integrity Policy](https://drexel.edu/studentlife/community_standards/code-of-conduct/academic-integrity-policy/).
-
-In short, your work must be your own. Unless explicitly allowed, sharing solutions with anyone who is not an instructor or TA, borrowing significant ideas or code from any resource not given in class, or using AI tools to generate code is prohibited. See the attached PDF for more details. If you're unsure whether some behavior may violate the Academic Integrity Policy, you are always welcome to ask in *advance*. You will never be punished for asking.
-
-All academic integrity violations will be reported to the university:
-- The first time you violate the Academic Integrity Policy in this course this term, you will receive either a zero on the assignment or exam the violation took place on, or a deduction of one whole letter grade from your course final grade (e.g. an A- becomes a B-), depending on the severity of the violation.
-  - If your first violation is unusually severe (e.g. stealing exam solutions and distributing them to the class before a test), you may receive an F after your first violation.
-- If you violate the Academic Integrity Policy a subsequent time in this course this term, you will receive an F for your course final grade.
-
-## University policies
-
-In addition to the policies listed on this syllabus, course assignments, or the course website, the following university policies are in effect:
-- [Academic Integrity Policy](https://drexel.edu/studentlife/community-standards/code-of-conduct/academic-integrity-policy)
-- [Disability Resources](https://drexel.edu/disability-resources)
-- [Course Add/Drop Policy](https://drexel.edu/provost/policies-calendars/policies/course-add-drop/)
-- [Course Withdrawal Policy](https://drexel.edu/provost/policies-calendars/policies/course-coop-withdrawal/)
-- [Exam Policy](https://drexel.edu/provost/policies-calendars/policies/final-examinations/)
-- Course Change Policy: The instructor may, at their discretion, change any part of the course during the term, including assignments, grade breakdowns, due dates, and the schedule. Such changes will be communicated to students via the course website Announcements page or our Discord channels. These channels should be checked regularly and frequently for changes. Other announcements, although rare, may include class cancellations and other urgent communications.
-- Initial Course Participation (ICP): Class attendance is critical to your success as a student. Missing class may impact your class success and your federal financial aid.
-
-## Diversity, Equity, and Inclusion statement
-
-The College of Computing & Informatics commits to creating a positive and safe learning environment for everyone – instructors, professional staff, and students – both inside and outside of the classroom. We embrace the diversity of thoughts, perspectives, and experiences that each community member brings, and we honor everyone’s identity (including, but not limited to, race, ethnicity, age, gender, socioeconomic status, sexuality, religion, veteran status, and disability). We encourage each community member to share information regarding pronouns, religious and cultural holidays, accommodations, and any other information that will assist instructors in fostering a supportive and inclusive community environment. For more information about CCI’s commitment to DEI, visit [Diversity, Equity & Inclusion Council](https://drexel.edu/cci/about/diversity-equity-and-inclusion-council/).
