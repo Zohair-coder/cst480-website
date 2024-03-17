@@ -140,7 +140,7 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Source Code',
+                label: 'Source code',
                 href: 'https://github.com/Zohair-coder/cst480-website',
               },
             ],
